@@ -1,0 +1,30 @@
+# Robots.txt for Sleek Travel - Google & search engine crawling instructions
+
+# Allow all crawlers to index the site
+User-agent: *
+Allow: /
+Disallow:
+
+# Google-specific crawling directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing crawler
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location (submit this in Google Search Console)
+Sitemap: https://sleektravel.com/sitemap.xml
+Sitemap: https://sleektravel.com/sitemap-mobile.xml
+
+# Block bad bots and scrapers
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
