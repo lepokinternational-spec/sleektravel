@@ -234,10 +234,15 @@
     .lang-switch button{padding:6px 10px;font-size:.72rem}
     .center{padding:clamp(20px,4vh,40px) 0}
   }
+  @media(max-width:640px){
+    .svc-grid{grid-template-columns:1fr;gap:16px}
+    .feature{grid-template-columns:1fr;gap:20px}
+  }
   @media(max-width:480px){
     .actions{flex-direction:column;align-items:stretch;gap:16px}
     .phones{flex-direction:row;flex-wrap:wrap;gap:8px 22px}
-    .btn-gold{justify-content:center}
+    .btn-gold{justify-content:center;min-height:48px}
+    .btn{min-height:48px;padding:12px 20px}
     .langs .set .d{margin:0 8px}
     .two{grid-template-columns:1fr}
     .overlay{padding:12px}
@@ -245,11 +250,24 @@
     .rating-stars{gap:6px}
     .rstar{font-size:1.9rem}
     .gcards{grid-template-columns:1fr}
-    h1{font-size:clamp(1.95rem,8.6vw,2.7rem)}
-    .lede{font-size:1.02rem}
+    h1{font-size:clamp(1.95rem,8.6vw,2.7rem);line-height:1.15}
+    .lede{font-size:1.02rem;margin:12px 0 20px}
     .langs .set{flex-wrap:wrap}
     .chip{padding:9px 15px;font-size:.82rem}
-    .steps{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr;gap:16px}
+    .sec-head h2{font-size:clamp(1.4rem,6.5vw,2rem)}
+    .sec-head p{font-size:clamp(.95rem,2vw,1rem)}
+    .card input,.card select,.card button{min-height:44px;font-size:16px}
+    .modal button{min-height:44px}
+  }
+  @media(max-width:380px){
+    .shell{padding:16px clamp(16px,3vw,20px)}
+    .top{padding:10px clamp(16px,3vw,20px);flex-direction:column;gap:12px}
+    .nav{flex-wrap:wrap;width:100%}
+    .nav-link{padding:8px 12px;font-size:.75rem}
+    .top-link{padding:8px 14px;font-size:.68rem}
+    h1{font-size:clamp(1.4rem,5vw,1.8rem)}
+    .chip{padding:7px 12px;font-size:.75rem}
   }
 
   /* ===== portal pages (Group Travel + Admin) ===== */
