@@ -260,6 +260,12 @@
     .card input,.card select,.card button{min-height:44px;font-size:16px}
     .modal button{min-height:44px}
   }
+  @media(max-width:480px){
+    .mpage{padding:6px 8px 60px;max-width:100%}
+    .card{max-width:100%;padding:clamp(20px,3vw,26px)}
+    .gp-dash{padding:18px clamp(16px,2.5vw,22px)}
+    .portal{padding:20px 8px 60px}
+  }
   @media(max-width:380px){
     .shell{padding:16px clamp(16px,3vw,20px)}
     .top{padding:10px clamp(16px,3vw,20px);flex-direction:column;gap:12px}
@@ -268,6 +274,9 @@
     .top-link{padding:8px 14px;font-size:.68rem}
     h1{font-size:clamp(1.4rem,5vw,1.8rem)}
     .chip{padding:7px 12px;font-size:.75rem}
+    .mpage{padding:4px 6px 50px}
+    .card{padding:clamp(16px,2.5vw,20px);max-width:100%}
+    .gp-dash{padding:14px clamp(12px,2vw,18px)}
   }
 
   /* ===== portal pages (Group Travel + Admin) ===== */
