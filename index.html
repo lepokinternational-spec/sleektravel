@@ -214,70 +214,9 @@
   .success h3{font-family:var(--serif);font-size:1.6rem;font-weight:420;margin-bottom:8px}
   .success p{color:rgba(246,240,228,.65)}
 
-  @media(max-width:760px){
-    .bottom{flex-direction:column;align-items:flex-start;gap:24px}
-    .actions{width:100%;justify-content:space-between;align-items:center}
-  }
-  @media(max-width:880px){
-    .nav{display:none}
-    .svc-grid{grid-template-columns:1fr}
-    .steps{grid-template-columns:repeat(2,1fr)}
-    .feature{grid-template-columns:1fr}
-    .sec-head h2{max-width:none}
-  }
-  @media(max-width:640px){
-    .top{gap:10px}
-    .top-actions{width:100%;gap:10px}
-    .top-link{padding:9px 16px;font-size:.72rem;letter-spacing:.12em}
-    .lang-switch{padding:3px 5px 3px 8px}
-    .lang-switch .globe{display:none}
-    .lang-switch button{padding:6px 10px;font-size:.72rem}
-    .center{padding:clamp(20px,4vh,40px) 0}
-  }
-  @media(max-width:640px){
-    .svc-grid{grid-template-columns:1fr;gap:16px}
-    .feature{grid-template-columns:1fr;gap:20px}
-  }
-  @media(max-width:480px){
-    .actions{flex-direction:column;align-items:stretch;gap:16px}
-    .phones{flex-direction:row;flex-wrap:wrap;gap:8px 22px}
-    .btn-gold{justify-content:center;min-height:48px}
-    .btn{min-height:48px;padding:12px 20px}
-    .langs .set .d{margin:0 8px}
-    .two{grid-template-columns:1fr}
-    .overlay{padding:12px}
-    .modal{padding:26px 20px;border-radius:18px}
-    .rating-stars{gap:6px}
-    .rstar{font-size:1.9rem}
-    .gcards{grid-template-columns:1fr}
-    h1{font-size:clamp(1.95rem,8.6vw,2.7rem);line-height:1.15}
-    .lede{font-size:1.02rem;margin:12px 0 20px}
-    .langs .set{flex-wrap:wrap}
-    .chip{padding:9px 15px;font-size:.82rem}
-    .steps{grid-template-columns:1fr;gap:16px}
-    .sec-head h2{font-size:clamp(1.4rem,6.5vw,2rem)}
-    .sec-head p{font-size:clamp(.95rem,2vw,1rem)}
-    .card input,.card select,.card button{min-height:44px;font-size:16px}
-    .modal button{min-height:44px}
-  }
-  @media(max-width:480px){
-    .mpage{padding:6px 8px 60px;max-width:100%}
-    .card{max-width:100%;padding:clamp(20px,3vw,26px)}
-    .gp-dash{padding:18px clamp(16px,2.5vw,22px)}
-    .portal{padding:20px 8px 60px}
-  }
-  @media(max-width:380px){
-    .shell{padding:16px clamp(16px,3vw,20px)}
-    .top{padding:10px clamp(16px,3vw,20px);flex-direction:column;gap:12px}
-    .nav{flex-wrap:wrap;width:100%}
-    .nav-link{padding:8px 12px;font-size:.75rem}
-    .top-link{padding:8px 14px;font-size:.68rem}
-    h1{font-size:clamp(1.4rem,5vw,1.8rem)}
-    .chip{padding:7px 12px;font-size:.75rem}
-    .mpage{padding:4px 6px 50px}
-    .card{padding:clamp(16px,2.5vw,20px);max-width:100%}
-    .gp-dash{padding:14px clamp(12px,2vw,18px)}
-  }
+  /* Responsive @media rules are consolidated at the END of this stylesheet
+     (after every base component rule) so their overrides always win by source
+     order. Add new responsive tweaks to that block, never above the base rules. */
 
   /* ===== portal pages (Group Travel + Admin) ===== */
   .page{display:flex;flex-direction:column;position:relative;z-index:2}
@@ -424,7 +363,7 @@
   .rcard .q::before{content:'\201C';color:var(--gold);font-family:var(--serif);font-size:2.6rem;line-height:0;vertical-align:-.42em;margin-inline-end:5px}
   .rcard .q::after{content:'\201D';color:var(--gold);font-family:var(--serif);font-size:1.35rem;line-height:0;vertical-align:-.2em;margin-inline-start:4px}
   .rcard .by{margin-top:18px;color:var(--gold-soft);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
-  @media(max-width:480px){.rcard{flex-basis:280px;width:280px}}
+  /* (.rcard mobile width handled in the consolidated responsive block below) */
 
   /* custom date picker */
   .dp{position:absolute;top:calc(100% + 6px);left:0;z-index:40;width:300px;max-width:92vw;background:#0e1b2e;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 24px 50px -20px rgba(0,0,0,.8);display:none}
@@ -456,29 +395,69 @@
   .admin-link{color:rgba(246,240,228,.5);border:1px solid var(--line);padding:7px 17px;border-radius:30px;transition:all .25s;cursor:pointer;letter-spacing:.12em;text-transform:uppercase;font-size:.74rem}
   .admin-link:hover{border-color:var(--gold);color:var(--gold)}
 
-  /* === Responsive corrections — MUST stay last: these selectors share specificity
-        with the base component rules above, so source order is what makes them win
-        on mobile. Do not move earlier. === */
+  /* ===== Responsive / mobile — ALL @media rules live here at the END of the
+        stylesheet, AFTER every base component rule, so these overrides always win
+        by source order. Add new responsive tweaks here, not above the base rules.
+        Breakpoints are ordered widest-first (880 -> 760 -> 640 -> 480 -> 380). ===== */
   @media(max-width:880px){
+    .nav{display:none}
     .svc-grid{grid-template-columns:1fr}
     .steps{grid-template-columns:repeat(2,1fr)}
     .feature{grid-template-columns:1fr;gap:clamp(24px,5vw,40px)}
+    .sec-head h2{max-width:none}
+  }
+  @media(max-width:760px){
+    .bottom{flex-direction:column;align-items:flex-start;gap:24px}
+    .actions{width:100%;justify-content:space-between;align-items:center}
   }
   @media(max-width:640px){
+    .top{gap:10px}
+    .top-actions{width:100%;gap:10px}
+    .top-link{padding:9px 16px;font-size:.72rem;letter-spacing:.12em}
+    .lang-switch{padding:3px 5px 3px 8px}
+    .lang-switch .globe{display:none}
+    .lang-switch button{padding:6px 10px;font-size:.72rem}
+    .center{padding:clamp(20px,4vh,40px) 0}
     .svc-grid{grid-template-columns:1fr;gap:16px}
     .steps{grid-template-columns:repeat(2,1fr);gap:18px}
     .feature{grid-template-columns:1fr;gap:22px}
-    .stats{grid-template-columns:1fr;gap:12px}
   }
   @media(max-width:480px){
-    .steps{grid-template-columns:1fr;gap:16px}
+    .actions{flex-direction:column;align-items:stretch;gap:16px}
+    .phones{flex-direction:row;flex-wrap:wrap;gap:8px 22px}
+    .btn-gold{justify-content:center;min-height:48px}
+    .btn{min-height:48px;padding:12px 20px}
+    .langs .set .d{margin:0 8px}
+    .langs .set{flex-wrap:wrap}
+    .two{grid-template-columns:1fr}
+    .overlay{padding:12px}
+    .modal{padding:26px 20px;border-radius:18px}
+    .modal button{min-height:44px}
+    .rating-stars{gap:6px}
+    .rstar{font-size:1.9rem}
     .gcards{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr;gap:16px}
+    h1{font-size:clamp(1.95rem,8.6vw,2.7rem);line-height:1.15}
+    .lede{font-size:1.02rem;margin:12px 0 20px}
+    .chip{padding:9px 15px;font-size:.82rem}
+    .sec-head h2{font-size:clamp(1.4rem,6.5vw,2rem)}
+    .sec-head p{font-size:clamp(.95rem,2vw,1rem)}
+    .card input,.card select,.card button{min-height:44px;font-size:16px}
     .mpage{max-width:100%;padding:6px 8px 60px}
     .card{max-width:100%;padding:clamp(20px,5vw,30px)}
     .gp-dash{padding:18px clamp(16px,4vw,22px)}
+    .portal{padding:20px 8px 60px}
     .rcard{flex-basis:84vw;width:84vw}
   }
   @media(max-width:380px){
+    .shell{padding:16px clamp(16px,3vw,20px)}
+    .top{padding:10px clamp(16px,3vw,20px);flex-direction:column;gap:12px}
+    .nav{flex-wrap:wrap;width:100%}
+    .nav-link{padding:8px 12px;font-size:.75rem}
+    .top-link{padding:8px 14px;font-size:.68rem}
+    h1{font-size:clamp(1.4rem,5vw,1.8rem)}
+    .chip{padding:7px 12px;font-size:.75rem}
+    .mpage{padding:4px 6px 50px}
     .card{padding:18px}
     .gp-dash{padding:14px}
   }
