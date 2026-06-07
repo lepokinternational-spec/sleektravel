@@ -16,8 +16,7 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location (submit this in Google Search Console)
-Sitemap: https://sleektravel.com/sitemap.xml
-Sitemap: https://sleektravel.com/sitemap-mobile.xml
+Sitemap: https://www.sleektravel.co/sitemap.xml
 
 # Block bad bots and scrapers
 User-agent: MJ12bot
