@@ -10,8 +10,8 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="googlebot" content="index, follow">
 <meta name="theme-color" content="#0d1726">
-<!-- Google Search Console Verification: Replace with your actual verification code from Google Search Console -->
-<meta name="google-site-verification" content="PASTE-YOUR-GOOGLE-VERIFICATION-CODE-HERE">
+<!-- Google Search Console: paste your real verification code and uncomment the line below.
+<meta name="google-site-verification" content="PASTE-YOUR-GOOGLE-VERIFICATION-CODE-HERE"> -->
 <!-- Google Search Console Sitemap -->
 <link rel="sitemap" href="https://sleektravel.com/sitemap.xml">
 <!-- Additional crawl directives for Google -->
@@ -465,13 +465,21 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" integrity="sha384-o+Hkm/usHFhCEWo1Ae1cLsOLiQQNrD2UfI424QDAaiZR7URnC8v35ey7s2sbGZHB" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" integrity="sha384-GJqSu7vueQ9qN0E9yLPb3Wtpd7OrgK8KmYzC8T1IysG1bcvxvIO4qtYR/D3A991F" crossorigin="anonymous"></script>
-  <!-- Google Analytics: Replace G-XXXXXXXXXX with your actual Google Analytics 4 ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google Analytics — paste your real GA4 ID in GA_ID below to activate.
+       While the placeholder is present, GA is intentionally NOT loaded, so no
+       request fires and no hits are sent to a non-existent property. -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    (function(){
+      var GA_ID="G-XXXXXXXXXX"; /* <-- replace with your GA4 ID (e.g. G-ABC123DEF4) */
+      if(!GA_ID || GA_ID.indexOf("XXXX")>=0) return;
+      var s=document.createElement('script');s.async=true;
+      s.src="https://www.googletagmanager.com/gtag/js?id="+GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer=window.dataLayer||[];
+      window.gtag=function(){dataLayer.push(arguments);};
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    })();
   </script>
   <!-- Google Tag Manager: Replace GTM-XXXXXXX with your actual GTM ID (optional) -->
   <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
@@ -807,8 +815,8 @@
         <div class="field"><label for="f-to" data-i18n="lblTo">Destination</label><input id="f-to" name="to" type="text" data-i18n-ph="phTo" placeholder="Flying to…"></div>
       </div>
       <div class="two">
-        <div class="field"><label for="f-depdate" data-i18n="lblDepartDate">Depart Date</label><input id="f-depdate" type="text" class="dt" readonly placeholder="Select date" autocomplete="off"></div>
-        <div class="field"><label for="f-retdate" data-i18n="lblReturnDate">Return Date</label><input id="f-retdate" type="text" class="dt" readonly placeholder="Select date" autocomplete="off"></div>
+        <div class="field"><label for="f-depdate" data-i18n="lblDepartDate">Depart Date</label><input id="f-depdate" type="text" class="dt" readonly data-i18n-ph="phSelectDate" placeholder="Select date" autocomplete="off"></div>
+        <div class="field"><label for="f-retdate" data-i18n="lblReturnDate">Return Date</label><input id="f-retdate" type="text" class="dt" readonly data-i18n-ph="phSelectDate" placeholder="Select date" autocomplete="off"></div>
       </div>
       <div class="two">
         <div class="field"><label data-i18n="lblAdults">Adults</label>
@@ -854,7 +862,7 @@
       modalTitle:"Let's plan your trip.",
       lblName:"Your Name", lblPhone:"Phone", lblEmail:"Email", lblMsg:"Notes",
       lblFrom:"Departure", lblTo:"Destination", phFrom:"Flying from…", phTo:"Flying to…",
-      lblDepartDate:"Depart Date", lblReturnDate:"Return Date", lblAdults:"Adults", lblChildren:"Children",
+      lblDepartDate:"Depart Date", lblReturnDate:"Return Date", lblAdults:"Adults", lblChildren:"Children", phSelectDate:"Select date",
       phName:"Full name", phPhone:"Best number to reach you",
       phMsg:"Travel dates, number of travelers, group details…",
       send:"Send Message", thankTitle:"Thank you!",
@@ -886,7 +894,7 @@
       modalTitle:"בואו נתכנן את הטיול שלכם.",
       lblName:"השם שלכם", lblPhone:"טלפון", lblEmail:"אימייל", lblMsg:"הערות",
       lblFrom:"מוצא", lblTo:"יעד", phFrom:"טסים מ…", phTo:"טסים ל…",
-      lblDepartDate:"תאריך יציאה", lblReturnDate:"תאריך חזרה", lblAdults:"מבוגרים", lblChildren:"ילדים",
+      lblDepartDate:"תאריך יציאה", lblReturnDate:"תאריך חזרה", lblAdults:"מבוגרים", lblChildren:"ילדים", phSelectDate:"בחרו תאריך",
       phName:"שם מלא", phPhone:"המספר הנוח ביותר להשגה",
       phMsg:"תאריכים, מספר נוסעים, פרטי הקבוצה…",
       send:"שליחת הודעה", thankTitle:"תודה רבה!",
@@ -918,6 +926,7 @@
       modalTitle:"לאָמיר פּלאַנירן אײַער נסיעה.",
       lblName:"אײַער נאָמען", lblPhone:"טעלעפֿאָן", lblEmail:"אימעיל", lblMsg:"באַמערקונגען",
       lblFrom:"פֿון וואַנען", lblTo:"וווּהין", phFrom:"פֿליען פֿון…", phTo:"פֿליען קיין…",
+      lblDepartDate:"אָפּפֿאָר דאַטום", lblReturnDate:"צוריקפֿאָר דאַטום", lblAdults:"דערוואַקסענע", lblChildren:"קינדער", phSelectDate:"קלייַבט אַ דאַטום",
       phName:"פֿולער נאָמען", phPhone:"דער בעסטער נומער זיך צו פֿאַרבינדן",
       phMsg:"דאַטעס, וויפֿל פּאַסאַזשירן, גרופּע־פּרטים…",
       send:"שיקט די מעלדונג", thankTitle:"אַ האַרציקן דאַנק!",
